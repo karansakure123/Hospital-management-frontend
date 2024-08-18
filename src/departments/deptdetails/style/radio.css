@@ -1,0 +1,249 @@
+/* Import Google Font in your index.html or CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.radio-sec2 {
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.radio-sec1-bgimg {
+    position: relative;
+}
+.bg-img{
+  object-fit: cover;
+  height: 55vh;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.inner-img{
+  width: 120% ;
+;
+  height: 40vh !important;
+  object-fit: cover;
+}
+
+.bg-img {
+    width: 100%;
+     border-radius: 15px; /* Add border radius for the background image */
+}
+.radio-h{
+    color: rgb(21, 126, 99);
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.radio-card-h{
+  color: rgb(21, 126, 99);
+  font-size: 3rem;
+   text-align: center;
+    margin-bottom: 2rem;
+}
+.inner-cadio-img {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 70%;
+    overflow: hidden; /* Ensure the inner image fits within the border radius */
+}
+
+.inner-img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow effect */
+    transition: transform 1s ease; /* Smooth transition for zoom effect */
+}
+
+/* Zoom effect on hover */
+.inner-cadio-img:hover .inner-img {
+    transform: scale(1.1); /* Zoom in the image on hover */
+    cursor: pointer;
+}
+
+.card-content {
+    font-family: 'Roboto', sans-serif; /* Use the imported Google Font */
+    padding: 20px;
+    margin-left: 2rem;
+}
+
+.card-content p {
+    font-size: 1.1rem;
+    line-height: 1.6; /* Improve line height for readability */
+    margin-bottom: 15px; /* Add margin between paragraphs */
+}
+
+.card-content button {
+    background-color: #337066; /* Change to your desired button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.our-expert-radio {
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+ 
+
+/* exp-card cssc */
+.exp-doc-h{
+    color: rgb(21, 126, 99);
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+ 
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;
+}
+
+
+
+
+ 
+.exp-card {
+    background-color: hsl(0, 0%, 100%);
+    border: 0;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease-out;
+    margin: 20px;
+  }
+  
+  .exp-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(59, 129, 106, 0.2);
+  }
+  
+  .exp-card-img {
+    width: 100%;
+    height: 250px;
+     object-fit: cover;
+  
+     border-bottom: 2px solid #aad6bc;
+    
+  }
+  .exp-card-body {
+    padding: 20px;
+    border: 0px;
+    height: 45vh;
+    text-align: center;
+  }
+  
+  .exp-card-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+  }
+  
+  .exp-card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .exp-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #389989;
+    color: #fff;
+    border: none;
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .exp-btn:hover {
+    background-color: #005f5f;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .exp-card {
+      margin-bottom: 20px;
+    }
+  }
+
+/* customScrollbar.css */
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Adjust the width if needed */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Border radius of the scrollbar thumb */
+    border: 2px solid #f1f1f1; /* Border around the scrollbar thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovering over the scrollbar thumb */
+  }
+
+
+  
+  /* For Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #589b8a #f1f1f1; /* Scrollbar thumb color and track color */
+  }
+  
+  /* Hide close button on larger screens */
+@media (max-width: 768px) {
+     
+    .radio-sec2 {
+       padding-top: 20px;
+    }
+    .inner-img {
+   height:27vh;
+   width: 100%;
+    }
+    
+    .card-content {
+        margin-top: 2rem;
+         padding: 10px;
+         margin-left: 0px;
+     }
+     .exp-doc-h{
+      
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+  }

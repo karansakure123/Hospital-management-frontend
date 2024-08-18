@@ -1,0 +1,372 @@
+/* General Styles */
+body {
+  font-family: "Cardo", serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Info Section */
+.info-row {
+  background-color: #337066;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  perspective: 1000px;
+}
+
+.info-row:hover {
+  transform: translateY(-8px) rotateX(3deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.info-card {
+  background-color: #337066;
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+  padding: 2rem;
+  text-align: center;
+   transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.info-card:hover {
+  background-color: #2a5b52;
+  transform: scale(1.05) rotateY(5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.info-icon:hover {
+  color: #1b9c75;
+  transform: rotate(360deg);
+}
+
+/* Hero Section */
+.hero-sec1 {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #337066 0%, #00467f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Welcome Section */
+.welc-title > h1 {
+  color: rgb(32, 32, 143);
+  margin: 2rem 1rem;
+  font-family: "Cardo", serif;
+  font-weight: 400;
+   font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.welc-title > h5 {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  color: rgb(73, 73, 126);
+  margin: 1rem;
+  animation: slideInLeft 1.2s ease-out;
+}
+
+.welc-text > p {
+  color: rgb(54, 54, 87);
+  margin: 1rem;
+  font-family: "Cardo", serif;
+  text-align: justify;
+  animation: slideInLeft 1.4s ease-out;
+}
+
+.welc-img {
+  padding: 2rem;
+  animation: zoomIn 1.6s ease-out;
+  transform-origin: center;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+ /* Card Styles */
+/* Card Styles */
+.home-sec2-card {
+  padding: 2.5rem;
+  margin: 1.5rem;
+  border: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.6));
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: cardSlideIn 0.5s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border-radius: 30px 30px 15px 15px; /* Unique rounded corners */
+}
+
+/* Hover Effect */
+.home-sec2-card:hover {
+  transform: scale(1.05) rotate(2deg); /* Scale and slight rotation */
+  box-shadow: 0 25px 50px rgba(35, 146, 118, 0.404); /* Increased shadow on hover */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smoother transition */
+}
+  
+
+/* Title Styles */
+.sec2-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00467f; /* Stylish heading color */
+  margin-bottom: 1rem;
+  text-transform: uppercase; /* Make heading uppercase */
+  letter-spacing: 1px; /* Letter spacing for aesthetics */
+}
+
+/* Text Styles */
+.sec2-p p {
+  color: #333; /* Text color */
+  font-family: "Arial", sans-serif; /* Change to your preferred font */
+  line-height: 1.6; /* Increase line height for readability */
+}
+
+/* Animated SVG Background with Snake-like Shape */
+.home-sec2-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,50 C30,0 70,100 100,50 L100,100 L0,100 Z" fill="rgba(162, 255, 162, 0.5)" /></svg>') no-repeat center;
+  background-size: cover;
+  z-index: 0;
+  animation: waveAnimation 4s ease-in-out infinite; /* Animation for the wave effect */
+  opacity: 0.5; /* Set transparency for the SVG background */
+}
+
+/* Keyframes for the wave animation */
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Button Styles */
+.more-btns {
+  background-color: #1b9c75; /* Button background color */
+  color: white; /* Button text color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: "Arial", sans-serif; /* Change to your preferred font */
+  font-size: 1rem; /* Font size */
+  position: relative;
+  z-index: 1; /* Ensure button is above SVG */
+}
+
+.more-btns:hover {
+  background-color: #2a5b52; /* Hover color */
+  transform: translateY(-2px); /* Hover effect */
+}
+
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* SVG and Animation Styles */
+.home-sec2-svg {
+  position: absolute; /* Position it absolutely */
+  bottom: 0; /* Align it to the bottom of the parent */
+  left: 0; /* Start from the left */
+  width: 100vw; /* Full viewport width */
+  height: auto; /* Maintain aspect ratio */
+  z-index: -1; /* Place it behind other content */
+}
+
+/* SVG container and shape styling */
+.svg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Make SVGs non-interactive */
+}
+
+.svg-shape {
+  position: absolute;
+  fill-opacity: 0.8; /* Slight transparency */
+  animation: shapeFloat 5s ease-in-out infinite alternate; /* Floating animation */
+}
+
+.svg-shape-1 {
+  top: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  animation-delay: 0.5s; /* Delay to stagger animation */
+}
+
+.svg-shape-2 {
+  bottom: -50px;
+  right: -50px;
+  width: 80px;
+  height: 80px;
+  animation-delay: 1s;
+}
+
+/* Animation for SVG shapes */
+@keyframes shapeFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .home-sec2 {
+    padding: 0;
+  }
+
+  .home-sec2-card {
+    padding: 1.5rem;
+  }
+
+  .sec2-heading {
+    font-size: 2.5rem;
+  }
+
+  .welc-sec {
+    padding: 10px;
+  }
+
+  .info-row {
+    width: auto;
+  }
+
+  .welc-img {
+    padding: 0px;
+    width: 100%;
+  }
+}
+
+/* Heading Section */
+.sec1-main-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  animation: bgColorChange 10s infinite;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+  border-radius: 10px;
+}
+
+.sec1-main-heading h1 {
+  font-size: 2.7em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #1b9c75, #2161af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: textMove 15s infinite linear;
+}
+
+.sec1-main-heading h1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+}
+
+.sec1-main-heading h1:hover::before {
+  width: 110%;
+  height: 110%;
+  top: 45%;
+  left: 45%;
+}
+
+.sec1-main-heading h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+/* Smooth Background Color Animation */
+@keyframes bgColorChange {
+  0% {
+    background-color: #337066;
+  }
+  50% {
+    background-color: #00467f;
+  }
+  100% {
+    background-color: #337066;
+  }
+}
+
+/* Text Animation */
+@keyframes textMove {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+

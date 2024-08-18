@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap');
+
+
+
+/* Form.css */
+.contact-sec {
+    padding-right: 1rem !important;
+}
+  
+.gmap {
+    width: 600px !important;
+    height: auto;
+    padding: 0.1rem;
+    margin-left: -2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: formAppear 1s ease-out;
+
+}
+
+.form-section {
+    padding: 2rem;
+    height: auto;
+
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: perspective(800px) rotateY(0deg);
+    animation: formAppear 1s ease-out;
+}
+
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: perspective(800px) rotateY(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: perspective(800px) rotateY(0deg);
+    }
+}
+
+
+.contact-heading {
+    font-size: 2.5rem;
+    font-weight: 500;
+    background: linear-gradient(90deg, #20697e, #e289cf);
+    /* Gradient color */
+    -webkit-background-clip: text;
+    /* Clip background to text */
+    -webkit-text-fill-color: transparent;
+    /* Make text color transparent */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #a8d4bb6e;
+    /* Green underline */
+    transition: background 1s ease-in-out, transform 0.3s ease;
+    /* Transition properties */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    /* Quirky font */
+}
+
+.contact-heading::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2c50795d;
+    /* Pink underline */
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.contact-heading:hover::before {
+    width: 100%;
+}
+
+.contact-heading:hover {
+    cursor: pointer;
+    /* Ensure the gradient transition works properly */
+    background: linear-gradient(90deg, #306baf, #378ac2);
+    /* Gradient color on hover */
+    -webkit-background-clip: text;
+    /* Clip background to text */
+    -webkit-text-fill-color: transparent;
+    /* Make text color transparent */
+    transform: translateY(-5px);
+    /* Slight lift effect */
+    transition: background 1s ease-in-out, transform 1s ease;
+    /* Correct transition properties */
+}
+
+.contact-headings {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    /* Dark gray color */
+    position: relative;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.contact-headings::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2d567c;
+    /* Red underline */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-headings:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.contact-headings:hover {
+    color: #0b5b91;
+    /* Red color on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+.custom-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-label {
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    font-size: 0.98rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.form-control:focus {
+    border-color: rgb(64, 182, 152);
+    box-shadow: 0 0 10px rgba(180, 230, 209, 0.5);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.contact-sub-btn {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #337066, #00467f);
+ margin: 0 auto ;
+margin-top: 1rem;
+ color: #e0f2f1;
+ width:80%;
+      border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 128, 0, 0.3);
+     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+     font-size: 1rem;
+     position: relative;
+    overflow: hidden;
+    animation: wave 3s infinite linear;
+    /* Animation for color wave effect */
+}
+
+.contact-sub-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, #337066, #00467f);
+    transform: rotate(45deg);
+    opacity: 0.5;
+    animation: wave-background 4s infinite linear;
+    z-index: 0;
+}
+
+.contact-sub-btn:hover {
+    background: linear-gradient(135deg, #00467f, #337066);
+    /* Inverted gradient on hover */
+    color: #e0f2f1;
+    /* Ensure text color remains readable */
+    transform: scale(1.05) translateY(-2px);
+    /* Slight scale and lift effect */
+    box-shadow: 0 12px 24px rgba(0, 128, 0, 0.4);
+    /* Enhanced shadow on hover */
+}
+
+@keyframes wave-background {
+    0% {
+        left: -50%;
+        color: white;
+    }
+
+    100% {
+        left: 100%;
+
+    }
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+
+
+/* Before and After */
+.form-group::before,
+.form-group::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 10;
+    left: 0;
+    background: rgba(176, 202, 190, 0.1);
+    border-radius: 8px;
+    z-index: -1;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+}
+
+.form-group:focus-within::before,
+.form-group:focus-within::after {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+@media screen and (max-width:767px) {
+    .contact-sec {
+        border-radius: 0px;
+        margin-top: -6rem;
+        padding: 0px !important;
+
+    }
+    .contact-sub-btn{
+        margin-bottom: 2rem;
+    } 
+    .gmap-row {
+ 
+     margin-top: 3rem ;
+    }
+    .form-section {
+        border-radius: 0px !important;
+        padding: 16px;
+    }
+    .bgimg img {
+
+        object-fit: cover;
+        height: 30vh !important;
+    }
+}
+/* General styling */
+.bgimg {
+    overflow: hidden; /* Prevents scrollbars */
+  }
+  
+  .bgimg img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space */
+  }
+  
+  .contact-sec {
+    padding-top: 20px;
+  }
+  
+  /* Custom card styling */
+  .custom-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-cards .custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .info-cards .custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Google map styling */
+  .gmap {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+  }
+  
+  /* Address card styling */
+  .address-heading,
+  .contact-info-heading {
+    color: #223c81;
+    margin-bottom: 10px;
+  }
+  
+  .address-card p,
+  .email-card p,
+  .mobile-card p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .address-card p b {
+    font-size: 1.1em;
+  }
+  
+
+
+/* Google map styling */
+.gmap {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    border: 0;
+     border-radius: 8px;
+  }
+  
+  /* Map card styling */
+  .map-card {
+    border: 1px solid rgb(236, 236, 236); /* For visibility, can remove later */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures proper border radius */
+    height: 350px; /* Maintain height */
+    margin-bottom: 20px;
+  }
+  .info-cards { 
+    margin: 0px;
+   }
+  
+  @media (min-width: 768px) {
+    .info-cards {
+      flex-direction: row;
+    }
+    
+  }
+  

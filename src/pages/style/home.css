@@ -1,0 +1,58 @@
+ 
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #ffffff; /* White background for the loading screen */
+  position: relative;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.spinner-path {
+  fill: none;
+  stroke: #008080; /* Teal color for the path */
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: draw 2s ease-in-out infinite;
+}
+
+.spinner-dot {
+  fill: #008080; /* Teal color for the dot */
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+.spinner-text {
+  margin-top: 20px;
+  font-size: 1rem; /* Smaller text size for a cleaner look */
+  color: #008080; /* Teal color */
+  text-align: center;
+  font-weight: bold;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  100% {
+    stroke-dasharray: 100, 0;
+  }
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}

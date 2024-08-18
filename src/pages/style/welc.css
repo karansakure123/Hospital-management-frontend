@@ -1,0 +1,251 @@
+/* Animated Background Section */
+.wel-sec {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  background-color: rgba(248, 251, 253, 0.8); /* Light background with transparency */
+}
+
+/* Background Animation: Moving Circles */
+@keyframes moveCircles {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10%) translateY(5%) rotate(180deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(360deg);
+  }
+}
+
+.wel-sec::before,
+.wel-sec::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: moveCircles 10s linear infinite;
+  pointer-events: none;
+}
+
+.wel-sec::before {
+  width: 200px;
+  height: 200px;
+  background-color: #FF5733; /* Circle color 1 */
+  top: -50px;
+  left: -50px;
+  animation-duration: 12s;
+}
+
+.wel-sec::after {
+  width: 300px;
+  height: 300px;
+  background-color: #00BFFF; /* Circle color 2 */
+  bottom: -100px;
+  right: -100px;
+  animation-duration: 15s;
+}
+
+/* Welcome Section Content */
+.wel-sec .content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Welcome Title Styling */
+.welc-title > h1 {
+  color: rgb(32, 32, 143);
+  margin: 2rem 1rem;
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Text Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Paragraph Text Styling */
+.welc-text > p {
+  color: rgb(54, 54, 87);
+  margin: 1rem;
+  font-family: "Cardo", serif;
+  text-align: justify;
+  animation: fadeIn 1.4s ease-out;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 767px) {
+  .wel-sec {
+    padding: 10px;
+  }
+  .welc-img{
+    height: 30vh;
+   }
+}
+
+
+/* Heading Section */
+.sec1-main-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  animation: bgColorChange 10s infinite;
+  position: relative;
+  padding-right: 0px;
+  padding-left: 0px;
+  width: 100%;
+   padding: 20px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+ }
+
+.sec1-main-heading h1 {
+  font-size: 2.7em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #1b9c75, #2161af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+   letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: textMove 15s infinite linear;
+}
+
+.sec1-main-heading h1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+}
+
+.sec1-main-heading h1:hover::before {
+  width: 110%;
+  height: 110%;
+  top: 45%;
+  left: 45%;
+}
+
+.sec1-main-heading h1 span {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.sec1-main-heading h1:hover span {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.sec1-main-heading h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%);
+  transition: width 0.5s;
+}
+
+.sec1-main-heading h1:hover::after {
+  width: 75%;
+}
+
+.sec1-main-heading h1:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes textMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes bgColorChange {
+  0% { background: #333; }
+  25% { background: #444; }
+  50% { background: #555; }
+  75% { background: #666; }
+  100% { background: #333; }
+}
+
+/* Button Styling */
+.button-primary {
+  background-color: #2161af;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #1b9c75;
+  transform: translateY(-2px);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+/* Heading Section */
+.sec1-main-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff; /* White background */
+  position: relative;
+   margin-bottom: 20px;
+  perspective: 1000px;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Bottom-side shadow */
+}
+
+.sec1-main-heading h1 {
+  font-size: 2.7em;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+  background: linear-gradient(to right, #1b9c75, #2161af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: svgMove 5s infinite ease-in-out; /* Smooth SVG-like movement */
+} 
+ 
+
+@keyframes bgColorChange {
+  0% { background: #fff; }
+  25% { background: #f9f9f9; }
+  50% { background: #f2f2f2; }
+  75% { background: #ebebeb; }
+  100% { background: #fff; }
+}
+
+@media (max-width: 767px) {
+
+
+}

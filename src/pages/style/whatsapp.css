@@ -1,0 +1,48 @@
+/* WhatsAppButton.css */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #17b852; /* WhatsApp green color */
+  color: white;
+  filter: brightness(120%);
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: 33px;
+  z-index: 1000; /* Ensure it is above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite; /* Unique floating animation */
+}
+
+/* Floating animation keyframes */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0) scale(1); /* Start and end at original size */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Initial shadow */
+  }
+  25% {
+      transform: translateY(-15px) scale(1.05); /* Move up and enlarge */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Increase shadow size */
+  }
+  50% {
+      transform: translateY(5px) scale(0.95); /* Move down slightly and shrink */
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); /* Medium shadow */
+  }
+  75% {
+      transform: translateY(-8px) scale(1.03); /* Float back up slightly */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Larger shadow */
+  }
+}
+
+/* Hover effects */
+.whatsapp-button:hover {
+  background-color: #128c7e; /* Darker green for hover effect */
+  transform: scale(1.15); /* Slightly enlarge on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Larger shadow on hover */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}

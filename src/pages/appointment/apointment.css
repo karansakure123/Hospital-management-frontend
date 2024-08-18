@@ -1,0 +1,150 @@
+/* Container styling */
+.appointment-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff; /* Use a white background for a cleaner look */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.appointment-heading {
+    color: #1e3a8a; /* Match the heading color */
+    font-size: 2.5rem; /* Increase heading size for emphasis */
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase; /* Add uppercase transformation */
+}
+
+/* Form styling */
+.appointment-form {
+    background: #f7f7f8; /* Light background for form */
+    padding: 30px;
+    border-radius: 15px;
+ }
+
+/* Label styling */
+.appointment-label {
+    display: block;
+    font-weight: 500;
+    color: #2c476e; /* Softer color for labels */
+    margin-bottom: 5px;
+}
+
+/* Input and select styling */
+.appointment-input,
+.appointment-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f7f7f7; /* Slightly darker background */
+    margin-bottom: 15px; /* Adjust spacing between inputs */
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Specific fields border styling */
+#firstName,
+#lastName,
+#email,
+#nic {
+    border: 1px solid #797e8d3a; /* Specific border color for these fields */
+}
+
+.appointment-input:focus,
+.appointment-select:focus {
+    border-color: #1e3a8a; /* Match the focus color */
+    box-shadow: 0 0 5px rgba(30, 58, 138, 0.5); /* Match the focus shadow color */
+}
+
+/* Date input styling */
+.appointment-input[type="date"] {
+    color: #333;
+}
+
+/* Select box styling */
+.appointment-select {
+    appearance: none;
+    background: url('data:image/svg+xml;base64,...') no-repeat right 12px center;
+    background-size: 16px 16px;
+}
+
+/* Button styling */
+.appointment-btn{
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(90deg, #0c3a68, #28758f); /* Bright gradient */
+    border: none;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s; /* Add a transform transition */
+}
+
+.appointment-btn:hover {
+    background: linear-gradient(90deg, #224652, #15508b); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Checkbox styling */
+.form-check-input {
+    display: none; /* Hide default checkbox */
+  }
+  
+  .form-check-label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px; /* Space for the custom checkbox */
+    font-size: 0.9rem;
+    color: #1b4f68 !important;
+  }
+  
+  .form-check-label:before, .form-check-label:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .form-check-label:before {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(17, 88, 146);
+    background: white;
+    border-radius: 3px;
+  }
+  
+  .form-check-input:checked + .form-check-label:after {
+    width: 20px;
+    height: 20px;
+    background: rgba(17, 124, 128, 0.61);
+    content: "\2714"; /* Unicode for checkmark */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+  }
+  
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row > .col-12 {
+        margin-bottom: 15px;
+    }
+
+    .appointment-heading {
+        font-size: 1.8rem; /* Adjust heading size on mobile */
+    }
+
+    .appointment-btn {
+        font-size: 1rem;
+    }
+}

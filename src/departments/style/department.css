@@ -1,0 +1,223 @@
+ 
+
+.dept-sec2 {
+  position: relative; /* Needed for absolute positioning of shapes */
+  margin-top: 4rem;
+  padding: 40px 20px;
+  background-color: #f0f2f5;
+  overflow: hidden; /* Ensure shapes don’t overflow */
+}
+
+/* Graphic shapes */
+.dept-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(100, 100, 255, 0.2); /* Semi-transparent color */
+  z-index: 0;
+  animation: moveShape 10s ease-in-out infinite; /* Smooth movement */
+}
+
+/* Shape 1: Large circle at the top-left */
+.dept-shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px; /* Position it outside the section */
+  left: -150px;
+  background: rgba(100, 100, 255, 0.3); /* Semi-transparent color */
+}
+
+/* Shape 2: Medium circle at the bottom-right */
+.dept-shape-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -150px; /* Position it outside the section */
+  right: -100px;
+  background: rgba(255, 100, 100, 0.3); /* Semi-transparent color */
+}
+
+/* Shape 3: Medium circle in the center */
+.dept-shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(100, 255, 100, 0.3); /* Semi-transparent color */
+}
+
+/* Shape 4: Small circle at the bottom-left */
+.dept-shape-4 {
+  width: 100px;
+  height: 100px;
+  bottom: -50px; /* Position it outside the section */
+  left: 20px;
+  background: rgba(255, 200, 100, 0.3); /* Semi-transparent color */
+}
+
+/* Shape 5: Large ellipse at the top-right */
+.dept-shape-5 {
+  width: 400px;
+  height: 200px;
+  top: -150px;
+  right: -200px;
+  background: rgba(150, 150, 255, 0.3); /* Semi-transparent color */
+  border-radius: 50% 50% 0 0; /* Elliptical shape */
+}
+
+/* Shape 6: Small circle at the center-right */
+.dept-shape-6 {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  right: -40px;
+  background: rgba(255, 150, 200, 0.3); /* Semi-transparent color */
+}
+
+/* Animation for moving shapes */
+@keyframes moveShape {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, 30px);
+  }
+  100% {
+    transform: translate(-30px, -30px);
+  }
+}
+
+/* Optional: Add a class for content to be above shapes */
+.dept-sec2-content {
+  position: relative;
+  z-index: 1; /* Ensure content is above shapes */
+}
+
+
+
+.dept-title {
+  font-family: 'Poppins', sans-serif;
+  /* Apply the Google Font */
+  text-align: center;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+  color: rgb(68, 16, 16);
+  /* Text color */
+  background: linear-gradient(45deg, #ff4e50, #f9d423);
+  /* Gradient text color */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  /* Adjust font size */
+  font-weight: 600;
+  /* Apply bold weight */
+  text-transform: uppercase;
+  /* Transform text to uppercase */
+  letter-spacing: 1px;
+  /* Add letter spacing */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  /* Add subtle text shadow */
+  padding: 0.5rem 1rem;
+  /* Add padding around text */
+  border-radius: 10px;
+  /* Rounded corners */
+  display: inline-block;
+  /* Ensure padding and background work correctly */
+}
+
+.dept-sec2-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: flex-start;
+  /* Align items to the top */
+}
+
+.dept-card {
+  border: none;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  position: relative;
+  background-color: #337066;
+  /* Set card background to blue */
+  cursor: pointer;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  /* Set a fixed width for medium cards */
+  height: 250px;
+  /* Set a fixed height for medium cards */
+  margin: 0 auto;
+  /* Center the card */
+}
+
+.dept-sec1-imgs {
+  margin-top: 2rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: contain;
+  /* Ensure image is contained within the card */
+  height: 30%;
+  /* Reduce height to fit the card */
+  width: 100%;
+  /* Set width to full */
+  background-color: transparent;
+  /* Set to transparent */
+}
+
+.dept-card-body {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center horizontally */
+  text-align: center;
+  /* Center text */
+  flex-grow: 1;
+  /* Allow the card body to grow and fill the available space */
+  justify-content: flex-start;
+  /* Align items at the top */
+}
+
+.dept-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  /* Set title text color to white */
+  margin-bottom: 10px;
+  transition: color 0.5s ease-in-out;
+}
+
+.dept-readmore {
+  background-color: rgb(17, 129, 129);
+  /* Button background color */
+  padding: 0.7rem;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  /* Rounded corners for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dept-readmore:hover {
+  background-color: rgb(2, 105, 100);
+  /* Darker color on hover */
+}
+
+/* Hover effect for card */
+.dept-card:hover {
+  background-color: rgb(28, 78, 70);
+  transition: 0.6s ease-in;
+  color: white;
+  transform: scale(1.01);
+  /* Slightly enlarge card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow on hover */
+}

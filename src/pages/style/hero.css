@@ -1,0 +1,246 @@
+/* Hero Section */
+.hero-sec1 {
+  position: relative;
+   overflow: hidden;
+  height: 90vh; /* Set height to 70vh */
+  width: 100%; /* Full width */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5)), 
+              url('path/to/your/background/image.jpg') no-repeat center center/cover;
+  border-radius: 0; /* No rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+}
+
+/* Carousel Styles */
+.homepage-carousel {
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+ 
+  height: 80vh; /* Set height to 70vh */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease; /* Added transform for movement */
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeIn 1s forwards, slideIn 0.5s forwards; /* Combined animations for active item */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%); /* Start from right */
+  }
+  to {
+    transform: translateX(0); /* Move to original position */
+}}
+
+/* Automatic Zoom Effect */
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1); /* Start at normal size */
+  }
+  50% {
+    transform: scale(1.05); /* Zoom in slightly */
+  }
+  100% {
+    transform: scale(1); /* Return to normal size */
+  }
+}
+
+.carousel-inner.grabbing {
+  cursor: grabbing;
+}
+
+/* Image Styles */
+.carousel-item img {
+  filter: brightness(1.1) contrast(1.2) saturate(1.2) opacity(1);
+  transform: scale(1.1);
+  height: 80vh; /* Set height to 100% of carousel item */
+  width: 100%;
+   object-position: center;
+  transition: transform 0.5s ease, filter 0.5s ease; /* Smooth scaling effect on hover */
+  border-radius: 0; /* No rounded corners for images */
+  animation: zoomEffect 10s ease-in-out infinite; /* Apply zoom effect */
+}
+
+.carousel-item img:hover {
+  transform: scale(1.1); /* Scale up effect on hover */
+  filter: brightness(1.1); /* Slightly brighten the image on hover */
+}
+
+/* Caption Styles */
+.carousel-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Strong shadow for text */
+}
+
+.slide-title {
+  font-size: 2rem; /* Larger font size for titles */
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation for titles */
+}
+
+.slide-description {
+  font-size: 1.2rem; /* Font size for descriptions */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation for descriptions */
+  margin-top: 10px; /* Spacing between title and description */
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+.hero-slider-section {
+    background-color: #81b4b4;
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+}
+
+ 
+
+/* Image Styles */
+.carousel-item img {
+    position: relative;
+    z-index: 2; /* Ensure image is above background animations */
+    filter: brightness(1.1) contrast(1.2) saturate(1.2) opacity(1);
+    transform: scale(1.1);
+    height: 80vh; /* Set height to 100% of carousel item */
+    width: 100%;
+    object-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease; /* Smooth scaling effect on hover */
+    border-radius: 0; /* No rounded corners for images */
+    animation: zoomEffect 10s ease-in-out infinite; /* Apply zoom effect */
+}
+
+/* Wave Animation */
+@keyframes waveMovement {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Floating Shapes Animation */
+@keyframes floatShapes {
+    0% {
+        background-position: 30% 40%, 70% 20%, 50% 80%, 90% 60%;
+    }
+    50% {
+        background-position: 40% 30%, 60% 50%, 60% 70%, 80% 90%;
+    }
+    100% {
+        background-position: 30% 40%, 70% 20%, 50% 80%, 90% 60%;
+    }
+}
+
+/* Particle Animation */
+@keyframes particleAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+  .homepage-carousel{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place SVG behind content */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(51, 112, 102, 0.5);" /><stop offset="100%" style="stop-color:rgba(0, 70, 127, 0.5);" /></linearGradient></defs><polygon points="0,600 200,300 800,600 0,600" fill="url(#grad1)" opacity="0.5"/><circle cx="600" cy="400" r="150" fill="rgba(0, 70, 127, 0.3)"/><rect x="350" y="450" width="100" height="100" fill="rgba(51, 112, 102, 0.5)" /></svg>') no-repeat center center;
+    background-size: cover;
+    animation: wave-animation 10s linear infinite; /* Infinite animation */
+  }
+  
+  @keyframes wave-animation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .carousel-item {
+    height: 70vh; /* Maintain 70vh height for carousel items */
+  }
+
+  .carousel-item img {
+    height: 100%; /* Set height to 100% of carousel item */
+    object-fit: contain;
+  }
+
+  .slide-title {
+    font-size: 1.5rem; /* Smaller title for mobile */
+  }
+
+  .slide-description {
+    font-size: 1rem; /* Smaller description for mobile */
+  }
+}
+
+/* Navigation Buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 50%; /* Circular buttons */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Change icon color to white */
+}
+
+/* Indicators */
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.5); /* Light background for indicators */
+}
+
+.carousel-indicators .active {
+  background-color: #007bff; /* Active indicator color */
+}

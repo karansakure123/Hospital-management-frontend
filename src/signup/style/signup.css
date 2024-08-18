@@ -1,0 +1,115 @@
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #eff4fa;
+  padding: 20px;
+}
+
+.register-form {
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s;
+}
+
+.register-form:hover {
+  transform: scale(1.02);
+}
+
+.register-form h2 {
+  margin-top: 2rem;
+  text-align: center;
+  color: #00467f;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+.register-form label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.register-form input,
+.register-form select {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #337066;
+  box-shadow: 0 0 5px rgba(51, 112, 102, 0.5);
+}
+
+.btn-register {
+  width: 100%;
+  background-color: #337066;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-register:hover {
+  background-color: #00467f;
+  transform: translateY(-2px);
+}
+
+select {
+  appearance: none;
+  background-color: #f0f4f1;
+  border: 1px solid #a0c4bc;
+  border-radius: 6px;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: rgb(71, 149, 163);
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  width: 100%;
+  position: relative;
+}
+
+select::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+option {
+  padding: 10px 15px;
+  border: none;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(59, 71, 73);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+option:hover {
+  background-color: rgba(51, 112, 102, 0.8);
+  color: #ffffff;
+}
+
+option:active,
+option:checked {
+  background-color: rgba(51, 112, 102, 0.9);
+  color: #ffffff;
+}
+
+select:focus {
+  border-color: #00467f;
+  background-color: #e7f5f2;
+  outline: none;
+}

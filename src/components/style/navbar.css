@@ -1,0 +1,321 @@
+/* Custom Navbar Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+  .navbar {
+    background-color: #ffffff;
+    border-bottom: 2px solid #70d18096;
+    box-shadow: 0 4px 8px #95a79569;
+    position: fixed; /* Change this from relative to fixed */
+    top: 0;
+    width: 99%;
+    z-index: 5; /* Ensure navbar stays above the video */
+  }
+
+/* Center navbar items for large screens */
+@media (min-width: 992px) {
+  .navbar-collapse   {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0); /* Show when open */
+    transition: transform 0.5s ease;
+  }
+
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+
+  .navbar-nav .nav-link {
+    margin: 0 15px;
+  }
+}
+
+/* Custom CSS for Navbar Logo */
+.navbar-brand img {
+  height: 48px;
+  padding: 0.3rem;
+  margin-right: 8px;
+  width: auto;
+}
+
+/* Custom CSS for Active Nav Link */
+ 
+
+.nav-item.active {
+  color: #3ca597;
+  padding: 7px 8px;
+  margin-left: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 400;
+  border-radius: 7px;
+}
+
+.nav-item.active:hover {
+  color: #4a9672;
+  background-color: #d3e9d9dc;
+  transition: 0.6s ease-in;
+  color: #13918a;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #0c693e;
+  background-color: #d3e9d9dc;
+  transition: 0.6s ease-in;
+  border-radius: 8px;
+}
+ 
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.active:focus {
+  color: #14a065 !important;
+  border-radius: 8px;
+}
+.navbar-nav .nav-item.active,  .nav-link {
+ padding: 10px;
+ 
+  margin-left: 32px !important;
+}
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  width: 270px;
+  background-color: #ffffff;
+  border: 1px solid #bdd0e2 !important;
+  border-radius: 0;
+  min-width: 200px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 6; /* Ensure dropdown is above the video */
+}
+
+.dropdown-item {
+  color: #0d852b;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #14a065 !important;
+}
+
+/* Video Background Styles */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;  
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    z-index: 7; /* Ensure sidebar is above the video */
+    overflow-y: auto;
+    padding-top: 56px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+    transform: translateX(-100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-link {
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+   }
+
+  .dropdown-menu {
+    position: static;
+    float: none;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .dropdown-item {
+    padding: 10px 20px;
+  }
+
+  .sidebar-close-btn {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    z-index: 8; /* Ensure close button is above the sidebar */
+  }
+
+  .appoint-btn { 
+    margin-left: -10px !important; 
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-close-btn {
+    display: none;
+  }
+}
+
+/* Navbar Toggle Button Styles */
+.navbar-toggler {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  color: transparent;
+  cursor: pointer;
+  padding: 0;
+  padding: 3px;
+  z-index: 6; /* Ensure toggle button is above the video */
+}
+
+.navbar-toggler span {
+  display: block;
+  height: 4px;
+  background-color: #187460;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler span:nth-child(2) {
+  width: 85%;
+  margin-right: auto;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+  width: 70%;
+  align-self: center;
+}
+
+/* Nav link styles */
+.navbar-nav .nav-link {
+  margin: 0;
+  color: #0d852b;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Adjustments for the appointment button */
+.appoint-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 300;
+  color: #14998e;
+  border: none;
+  border-radius: 6px;
+  transition: background 3s ease;
+  margin-top: 0px;
+  margin-left: 19px;
+
+  text-align: center;
+  background: linear-gradient(45deg, #fff5f3, #cef3ed);
+}
+
+.appoint-btn:hover {
+  background: linear-gradient(45deg, #437979, #58aaec);
+  transform: scale(0.98);
+  color: white;
+}
+
+/* Optional: Add a subtle pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.appoint-btn {
+  animation: pulse 3s infinite; /* Pulse animation for a smooth effect */
+}
+
+/* Adjustments for the login button */
+.nav-login {
+  font-size: 1.2rem;
+  padding: 0.3rem 1.3rem;
+  width: 90%;
+  color: rgb(214, 57, 57) !important;
+  background: linear-gradient(45deg, #f8ebdc, #f7edf8);
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-login:hover {
+  color: rgb(255, 102, 196) !important;
+}
+
+/* Slider Styles */
+.slider {
+  position: relative;
+  z-index: 2; /* Ensure slider is above the video */
+}
+
+.slider-item {
+   position: relative;
+  z-index: 3; /* Ensure slider items are above the video */
+}

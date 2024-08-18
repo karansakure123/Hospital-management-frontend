@@ -1,0 +1,842 @@
+/**************** Enhanced Blog CSS **********/
+
+.blog {
+  position: relative;
+  padding: 80px 0;
+  margin-top: 3rem;
+  overflow: hidden; /* Ensure the animated elements stay within the section */
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.9), rgba(240, 240, 240, 0.9));
+}
+
+/* Background Animation */
+.blog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 254, 255, 0.7), rgba(240, 240, 255, 0.7));
+  z-index: -1;
+  animation: gradientAnimation 15s ease infinite; /* Background animation */
+}
+
+/* Animated SVG Shapes */
+.blog .shape {
+  position: absolute;
+  opacity: 0.3; /* Light opacity for smoothness */
+  z-index: 1;
+}
+
+.shape1, .shape2, .shape3, .shape4, .shape5, .shape6, .shape7, .shape8, .shape9, .shape10,
+.shape11, .shape12, .shape13, .shape14, .shape15, .shape16 {
+  fill: rgba(207, 55, 55, 0.7); /* Default color for shapes */
+}
+
+/* Shape Positions and Animations */
+.shape1 {
+  top: 15%;
+  left: 8%;
+  width: 80px;
+  animation: moveShape1 12s ease-in-out infinite;
+}
+
+.shape2 {
+  top: 45%;
+  left: 62%;
+  width: 120px;
+  animation: moveShape2 14s ease-in-out infinite;
+  animation-delay: 3s; /* Delay for staggering effect */
+}
+
+.shape3 {
+  top: 68%;
+  left: 18%;
+  width: 100px;
+  animation: moveShape3 11s ease-in-out infinite;
+  animation-delay: 6s; /* Delay for staggering effect */
+}
+
+.shape4 {
+  top: 25%;
+  left: 78%;
+  width: 70px;
+  animation: moveShape4 16s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.shape5 {
+  top: 82%;
+  left: 38%;
+  width: 130px;
+  animation: moveShape5 19s ease-in-out infinite;
+  animation-delay: 5s;
+}
+
+/* Additional Shapes with New Colors and Animations */
+.shape6 {
+  top: 5%;
+  left: 28%;
+  width: 60px;
+  fill: rgba(255, 165, 0, 0.7); /* Orange color */
+  animation: moveShape6 14s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.shape7 {
+  top: 55%;
+  left: 12%;
+  width: 140px;
+  fill: rgba(0, 128, 255, 0.7); /* Blue color */
+  animation: moveShape7 16s ease-in-out infinite;
+  animation-delay: 7s;
+}
+
+.shape8 {
+  top: 38%;
+  left: 72%;
+  width: 90px;
+  fill: rgba(128, 0, 128, 0.7); /* Purple color */
+  animation: moveShape8 20s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.shape9 {
+  top: 88%;
+  left: 17%;
+  width: 110px;
+  fill: rgba(0, 255, 128, 0.7); /* Green color */
+  animation: moveShape9 11s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.shape10 {
+  top: 22%;
+  left: 88%;
+  width: 80px;
+  fill: rgba(255, 0, 64, 0.7); /* Red color */
+  animation: moveShape10 17s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.shape11 {
+  top: 8%;
+  left: 50%;
+  width: 150px;
+  fill: rgba(255, 215, 0, 0.7); /* Gold color */
+  animation: moveShape11 15s ease-in-out infinite;
+  animation-delay: 8s;
+}
+
+.shape12 {
+  top: 65%;
+  left: 25%;
+  width: 110px;
+  fill: rgba(255, 20, 147, 0.7); /* Pink color */
+  animation: moveShape12 13s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+.shape13 {
+  top: 30%;
+  left: 5%;
+  width: 140px;
+  fill: rgba(75, 0, 130, 0.7); /* Indigo color */
+  animation: moveShape13 18s ease-in-out infinite;
+  animation-delay: 5s;
+}
+
+.shape14 {
+  top: 75%;
+  left: 80%;
+  width: 100px;
+  fill: rgba(0, 206, 209, 0.7); /* Turquoise color */
+  animation: moveShape14 16s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.shape15 {
+  top: 85%;
+  left: 60%;
+  width: 70px;
+  fill: rgba(255, 140, 0, 0.7); /* Dark Orange color */
+  animation: moveShape15 19s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.shape16 {
+  top: 50%;
+  left: 10%;
+  width: 160px;
+  fill: rgba(34, 139, 34, 0.7); /* Forest Green color */
+  animation: moveShape16 20s ease-in-out infinite;
+  animation-delay: 9s;
+}
+
+/* Background Animation Keyframes */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shape Movement Animations */
+@keyframes moveShape1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-30px, 20px) rotate(45deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -40px) scale(0.8); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape4 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-40px, 30px) rotate(-45deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape5 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.3); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape6 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape7 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -30px) rotate(-30deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape8 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.4); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape9 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(40px, -20px) rotate(30deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape10 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 30px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape11 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -40px) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape12 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-40px, 20px) rotate(-45deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape13 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.3); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape14 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 40px) rotate(60deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes moveShape15 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -20px) scale(0.8); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveShape16 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 50px) scale(1.5); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Title Styling */
+.blog .section-title {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(45deg, #ff6347, #ff4500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleAnimation 5s linear infinite;
+}
+
+/* Title Animation */
+@keyframes titleAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.blog .container {
+  position: relative;
+  z-index: 1; /* Ensure content is above the background and shapes */
+  text-align: center; /* Center-align the content */
+}
+
+.blog-heading h1 {
+  color: white; /* Make the heading stand out */
+  font-size: 2.5rem; /* Increase font size */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.8); /* Light background for blog cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transform on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blog-heading h1 {
+  text-align: center;
+  font-size: 3rem; /* Increased font size for better visibility */
+  margin-bottom: 50px;
+  color: #396d7a;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600; /* Slightly bolder for emphasis */
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.9); /* Adds a semi-transparent white background to cards */
+  border-radius: 12px; /* Adds rounded corners to cards */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  margin-bottom: 30px; /* Adds space between cards */
+  overflow: hidden; /* Prevents overflow of content within the card */
+  position: relative; /* Allows for absolute positioning of inner elements */
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Slightly lifts and scales the card on hover */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.blog-card-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card-img img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s; /* Smooth zoom effect */
+}
+
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.blog-card-body {
+  padding: 20px;
+  background: #f9f9f9; /* Slightly darker than the card */
+}
+
+.blog-card-text {
+  margin-bottom: 20px;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between; /* Aligns date and author on left and right */
+  margin-bottom: 10px; /* Adds space below meta */
+}
+
+.blog-card-text .date,
+.blog-card-text .author {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.blog-card-text .title {
+  font-size: 1.5rem; /* Increased font size for title */
+  color: #333;
+  margin: 10px 0;
+  transition: color 0.3s;
+}
+
+.blog-card:hover .title {
+  color: #487973; /* Change color on hover */
+}
+
+.blog-card-text .excerpt {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.blog-readmore {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #136391;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%; /* Full-width button */
+}
+
+.blog-readmore:hover {
+  background-color: #2c5480; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .blog-heading h1 {
+      font-size: 2.5rem; /* Responsive font size */
+  }
+
+  .blog-card {
+      margin-bottom: 20px; /* Reduced margin for smaller screens */
+  }
+
+  .blog-card-text .title {
+      font-size: 1.2rem; /* Responsive title size */
+  }
+
+  .blog-readmore {
+      padding: 8px 16px; /* Adjusted padding for smaller screens */
+  }
+}
+
+/* Background image styles */
+.bgimg-sec1 {
+  width: 100%;
+  height: 100%;
+}
+
+.bgumg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+} 
+
+
+
+
+
+
+
+
+
+
+/* sec6 */
+
+
+/* Main section styling */
+.testimonial-sec6 {
+  position: relative;
+  padding-top: 3rem;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  background-color: #f0f4f8; /* Light background color */
+  color: #333; /* Dark text color for readability */
+}
+
+/* Custom classes for shapes */
+.shape-primary {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.shape-one {
+  top: 1%;
+  left:3%;
+  width: 20%;
+  height: 40%;
+  background: rgba(68, 196, 228, 0.329); /* Soft blue */
+  animation: floatOne 6s ease-in-out infinite, scaleOne 8s ease-in-out infinite;
+}
+
+.shape-two {
+  top: 60%;
+  left: 26%;
+  width: 20%;
+  height: 35%;
+  background: rgba(231, 130, 30, 0.4); /* Soft orange */
+  animation: floatTwo 8s ease-in-out infinite, scaleTwo 10s ease-in-out infinite;
+}
+
+.shape-three {
+  top: 2%;
+  right: 20%;
+  width: 10%;
+  height: 20%;
+  background: rgba(102, 204, 153, 0.4); /* Soft green */
+  animation: floatThree 7s ease-in-out infinite, scaleThree 9s ease-in-out infinite;
+}
+
+.shape-four {
+  bottom: 10%;
+  border-radius: 0px;
+  right: 2%;
+  width: 20%;
+  height: 30%;
+  background: rgba(202, 38, 107, 0.438); /* Soft pink */
+  animation: floatFour 9s ease-in-out infinite, scaleFour 11s ease-in-out infinite;
+}
+
+/* Keyframes for floating and scaling animations */
+@keyframes floatOne {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scaleOne {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes floatTwo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes scaleTwo {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes floatThree {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes scaleThree {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floatFour {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes scaleFour {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+}
+
+/* Custom particles effect */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: particleMotion 3s linear infinite;
+}
+
+/* Keyframes for particle effect */
+@keyframes particleMotion {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+  
+  .carousel-inner {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .testimonial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers the .test-card vertically */
+    padding: 20px;
+     height: 60vh;
+    position: relative;
+    overflow: hidden; /* Ensures the overlay does not go outside the item */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .test-card {
+    top: 30%;
+  border-radius: 0px;
+    position: relative;
+    z-index: 1; /* Ensures content is above the background */
+    background-color: rgb(255, 255, 255); /* White background for the test card */
+    height: 25vh; 
+  }
+  
+  .testimonial-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #498b84;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+    color: #35627c;
+  }
+  
+  .testimonial-prev-btn,
+  .testimonial-next-btn {
+     background-color: black;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(9, 177, 154, 0.808);
+  
+  }
+  
+  .carousel-control-next {
+    position: absolute;
+    top: 50% !important;
+    right: -18px !important;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  .carousel-control-next-icon {
+    background-image: url('path_to_your_right_icon_image.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .testimonial-sec6 {
+    margin-top: 2.4rem;
+  height: auto;
+  padding: 1rem;
+   }
+  
+  @media screen and (max-width:767px) {
+  
+    .testimonial-item {
+   padding: 0px;
+    }
+  
+  
+  
+  
+   
+  
+  .testimonial-item {
+   padding: 1rem;
+     height: 60vh;
+   
+   }
+  
+  .test-card {
+   top:2%;
+     padding: 1rem;
+    height: 35vh; 
+  }
+  
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+     /**************     sec7 css   ********/
+
+
+
+
+
+
+/* sec7 */
+.sec7-pspeak {
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.7), rgba(240, 240, 240, 0.7)),
+              radial-gradient(circle at 20% 20%, rgba(0, 255, 0, 0.5), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.5), transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.3), transparent 50%);
+  background-size: cover, cover, cover, cover;
+  background-blend-mode: screen;
+  animation: shine 10s linear infinite, colorShift 20s ease-in-out infinite;
+}
+
+/* Animation for shine effect */
+@keyframes shine {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Animation for color shifting effect */
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(135deg, rgba(250, 250, 250, 0.7), rgba(240, 240, 240, 0.7)),
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 0, 0.5), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.5), transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.3), transparent 50%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(220, 220, 220, 0.8)),
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.5), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 0, 0.5), transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.3), transparent 50%);
+  }
+  100% {
+    background: linear-gradient(135deg, rgba(250, 250, 250, 0.7), rgba(240, 240, 240, 0.7)),
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 0, 0.5), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.5), transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.3), transparent 50%);
+  }
+}
+
+  .pspeak-heading {
+    font-size: 2.3rem !important;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: rgb(40, 98, 165);
+  }
+  
+  .sec7-card {
+    background: white; /* Card background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 30px; /* Space between cards */
+    position: relative; /* Position relative for absolute positioning of text */
+  }
+  
+  .sec7-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0; /* Hide overflow */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10px; /* Rounded corners for video */
+  }
+  
+  .sec7-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Remove border */
+  }
+  
+  .card-text-sec7 {
+    position: absolute; /* Absolute positioning for overlay */
+    bottom: 0px; /* Distance from the bottom */
+    left: 0;
+    right: 0;
+    background-color: rgba(228, 227, 227, 0.8); /* Semi-transparent background for text */
+    padding: 10px; /* Padding inside text section */
+    text-align: center; /* Center text */
+    color: #333; /* Darker text for readability */
+    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+  }
+  
+  .card-text-sec7 h5 {
+    font-size: 1.25rem; /* Font size for heading */
+    margin: 0; /* Remove margin */
+    font-weight: 600; /* Make the text bolder */
+  }
+  
+  
+  

@@ -1,0 +1,119 @@
+/******** Our Infra CSS *******/
+.infra {
+    padding: 60px 30px;
+     position: relative;
+    overflow: hidden;
+    height: 100vh; /* Ensure the section takes the full viewport height */
+    width: 100%; /* Ensure the section takes the full width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infra::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(224, 247, 244, 0.829); /* Adjusted opacity for more transparency */
+    z-index: 0; /* Set behind the content */
+}
+
+.infra .container-fluid {
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+}
+
+.our-infra-heading {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: transparent; /* Set color to transparent for gradient effect */
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background: linear-gradient(90deg, #5f6d6d, #df92db); /* Gradient background */
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari compatibility */
+    animation: glowing-text 3s infinite alternate; /* Subtle glow animation */
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow animation */
+@keyframes glowing-text {
+    0% {
+        text-shadow: 0 5px 15px rgba(252, 179, 179, 0.6), 0 0 20px rgba(255, 155, 211, 0.6), 0 0 30px rgba(255, 155, 211, 0.8);
+    }
+    100% {
+        text-shadow: 0 5px 15px rgba(161, 135, 135, 0.6), 0 0 30px rgba(255, 155, 211, 1), 0 0 50px rgba(255, 155, 211, 1);
+    }
+}
+
+
+
+/* Styles for the images */
+.img-left,
+.img-mid,
+.img-right {
+     width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(156, 143, 143, 0.4);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+    position: relative;
+    z-index: 2;
+    opacity: 0.85; /* Adjust opacity for transparency */
+}
+
+.img-right{
+    margin-left: 10px;
+}
+.col-md-6,
+.col-md-3 {
+    overflow: hidden !important; /* Prevent overflow during zoom effect */
+}
+
+.img-left,
+.img-mid,
+.img-right {
+    transition: transform 0.7s ease; /* Smooth transition effect */
+}
+
+.img-left:hover,
+.img-mid:hover,
+.img-right:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.infra .col-md-4 {
+    padding: 0 20px;
+}
+
+.infra .row > .col-md-4 {
+    padding-top: 20px;
+}
+
+.infra .row .col-12 {
+    padding: 0;
+}
+
+.infra .row .col-12.mb-2 {
+    margin-bottom: 20px;
+}
+
+/* Media query for screens 767px and smaller */
+@media screen and (max-width: 767px) {
+    .infra {
+        padding: 30px;
+    }
+
+    .img-left,
+    .img-mid,
+    .img-right {
+        height: auto;
+    }
+}

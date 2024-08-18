@@ -1,0 +1,175 @@
+.alldoct-container {
+    padding: 8rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(231, 253, 245, 0.8)), 
+                linear-gradient(135deg, #eaf5fc 0%, #f0e6e4 99%, #e5fdff 100%);
+    background-blend-mode: overlay;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+    animation: gradientShift 20s ease infinite;
+}
+
+/* Subtle diagonal gradient shift */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating dots animation for a unique effect */
+.alldoct-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(215, 241, 236, 0.774) 20%, transparent 20%);
+    background-size: 50px 50px;
+    animation: floatingDots 25s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes floatingDots {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+ 
+.alldoct-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #0e2238;
+}
+
+  
+
+.alldoct-card {
+    background-color: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Ensures no overflow from rounded corners */
+    position: relative; /* For pseudo-elements */
+    text-align: center; /* Center text */
+}
+
+.alldoct-card:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.alldoct-img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures the entire image is visible */
+    display: block; /* Remove any extra space below the image */
+    transition: transform 0.3s; /* Smooth scaling effect */
+}
+
+.alldoct-card {
+    overflow: hidden; /* Prevents overflow from the card corners */
+}
+
+/* If you still want the hover effect */
+.alldoct-img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+.alldoct-img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.alldoct-card-body {
+    padding: 20px; /* Inner padding for content */
+}
+
+ .alldoct-card {
+    background-color: #ffffff; /* White background for cards */
+    border: 1px solid #ddd; /* Light border for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    overflow: hidden; /* Prevent overflow */
+    transition: transform 0.3s; /* Smooth scaling effect on hover */
+    display: flex; /* Flex layout for card content */
+    flex-direction: column; /* Vertical alignment */
+    align-items: flex-start; /* Align items to the start */
+    padding: 20px; /* Padding inside cards */
+    margin: 10px; /* Margin around cards */
+    
+    &:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+    }
+}
+
+ .doctor-name {
+    font-size: 1.5rem; /* Larger font size for doctor name */
+    margin: 10px 0;
+    color: #304a72; /* Attractive color for name */
+    font-weight: bold; /* Bold text */
+    text-align: left; /* Align text to the left */
+    transition: color 0.3s; /* Smooth color transition on hover */
+    
+    &:hover {
+        color: #167f86; /* Change color on hover */
+    }
+}
+
+ .alldoct-details {
+    font-size: 0.9rem;
+    color: #555; /* Slightly darker gray */
+    width: 100%; /* Full width for details section */
+    text-align: left; /* Align text to the left */
+    
+    p {
+        margin: 8px 0; /* Space between paragraphs */
+        transition: color 0.3s; /* Smooth color transition */
+        
+        &:hover {
+            color: #3b7ddd; /* Change color on hover */
+        }
+    }
+}
+
+  @media (max-width: 768px) {
+    .alldoct-card {
+        padding: 0px;
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
+
+
+.alldoct-details p:hover {
+    color: #0e2238; /* Change color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .alldoct-container {
+ width: 100%; 
+ padding: 0px;
+}
+
+.alldoct-heading {
+margin-top: 7rem;
+}
+
+.alldoct-card{
+margin: 0px;
+    padding: 10px;
+    margin-top: 1rem;
+ }
+}
