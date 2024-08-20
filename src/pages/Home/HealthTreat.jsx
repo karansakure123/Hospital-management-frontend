@@ -5,7 +5,7 @@ import * as Icons from 'react-icons/fa'; // Import all FontAwesome icons
 
 const HealthSection = () => {
   const [healthData, setHealthData] = useState([]);
- 
+
   useEffect(() => {
     const fetchHealthData = async () => {
       try {
@@ -13,7 +13,7 @@ const HealthSection = () => {
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
         console.log('Fetched health data:', response.data);
 
-        // Ensure the response data is in the expected format
+        // Ensure the response data is an array
         if (Array.isArray(response.data)) {
           setHealthData(response.data);
         } else {
