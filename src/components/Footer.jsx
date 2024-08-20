@@ -3,7 +3,7 @@ import './style/footer.css';
 
 const Footer = () => {
   const [links, setLinks] = useState([]);
-  const apiUrl = 'https://hospital-management-backend-4.onrender.com/api/v1/footer/getall'; // Replace with your actual API URL
+  const apiUrl = 'https://hospital-management-backend-3.onrender.com/api/v1/footer/getall'; // Replace with your actual API URL
 
   // Fetch links data from API
   const fetchLinks = async () => {

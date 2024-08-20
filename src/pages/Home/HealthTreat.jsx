@@ -10,7 +10,7 @@ const HealthSection = () => {
   useEffect(() => {
     const fetchHealthData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/health/getall');
+        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
         setHealthData(response.data); // Assuming the data is returned in the response body
       } catch (error) {
         console.error('Error fetching health data:', error);

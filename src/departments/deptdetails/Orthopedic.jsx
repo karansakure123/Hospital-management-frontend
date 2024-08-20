@@ -13,7 +13,7 @@ const Orthopedic = () => {
     const fetchOrthoData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/orthopedics/getall"
+          "https://hospital-management-backend-3.onrender.com/api/v1/orthopedics/getall"
         );
         setOrthoData(response.data);
       } catch (error) {
@@ -25,7 +25,7 @@ const Orthopedic = () => {
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/doctors?department=Orthopedics"
+          "https://hospital-management-backend-3.onrender.com/api/v1/user/doctors?department=Orthopedics"
         );
         setExpCardsData(response.data.doctors);
       } catch (error) {

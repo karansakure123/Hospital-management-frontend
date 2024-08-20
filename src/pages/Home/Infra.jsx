@@ -9,7 +9,7 @@ const InfraSection = () => {
   useEffect(() => {
     const fetchInfrastructure = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/infra/getall'); // Backend API endpoint
+        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/infra/getall'); // Backend API endpoint
         setInfrastructure(response.data.infrastructures[0]); // Assuming you're getting an array and taking the first item
       } catch (error) {
         console.error("Error fetching infrastructure:", error);

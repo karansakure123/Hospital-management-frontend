@@ -9,7 +9,7 @@ const Equipped = () => {
   useEffect(() => {
     const fetchEquipped = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/about/equipped/getall'); // Replace with your API endpoint
+        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/about/equipped/getall'); // Replace with your API endpoint
         setEquipped(response.data.equipped);
       } catch (err) {
         console.error("Error fetching equipped section :", err);

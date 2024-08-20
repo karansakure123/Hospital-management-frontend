@@ -9,7 +9,7 @@ const Accreditation = () => {
   useEffect(() => {
     const fetchAccreditations = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/about/accreditation/getall'); // Replace with your API endpoint
+        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/about/accreditation/getall'); // Replace with your API endpoint
         setAccreditation(response.data.accreditations);
       } catch (err) {
         console.error("Error fetching accreditations:", err);

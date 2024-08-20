@@ -8,7 +8,7 @@ const Patientspeak = () => {
   useEffect(() => {
     const fetchPatientSpeaks = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/patientspeak/getall'); // Adjust URL as needed
+        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/patientspeak/getall'); // Adjust URL as needed
         setPatientSpeaks(response.data);
       } catch (error) {
         console.error('Error fetching patient speaks:', error);

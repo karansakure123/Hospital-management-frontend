@@ -18,7 +18,7 @@ const Navbar = () => {
         const fetchNavigationItems = async () => {
             setLoading(true);
             try {
-                const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/navbar/getall");
+                const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/navbar/getall");
                 console.log("Fetched navbar data:", response.data);
                 
                 if (response.data.success && response.data.navbar.length > 0) {

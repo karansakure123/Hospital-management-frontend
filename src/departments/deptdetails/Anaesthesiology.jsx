@@ -13,7 +13,7 @@ const Anaesth = () => {
     const fetchAnaesthData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/anaesthesio/getall"
+          "https://hospital-management-backend-3.onrender.com/api/v1/anaesthesio/getall"
         );
         setAnaesthData(response.data);
       } catch (error) {
@@ -25,7 +25,7 @@ const Anaesth = () => {
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/doctors?department=Anaesthesiology"
+          "https://hospital-management-backend-3.onrender.com/api/v1/user/doctors?department=Anaesthesiology"
         );
         setExpCardsData(response.data.doctors);
       } catch (error) {

@@ -13,7 +13,7 @@ const Cardiology = () => {
     const fetchCardioData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/cardiology/getall" // Update the endpoint for cardiology
+          "https://hospital-management-backend-3.onrender.com/api/v1/cardiology/getall" // Update the endpoint for cardiology
         );
         setCardioData(response.data);
       } catch (error) {
@@ -25,7 +25,7 @@ const Cardiology = () => {
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/doctors?department=Cardiology" // Update department to Cardiology
+          "https://hospital-management-backend-3.onrender.com/api/v1/user/doctors?department=Cardiology" // Update department to Cardiology
         );
         setExpCardsData(response.data.doctors);
       } catch (error) {
