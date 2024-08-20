@@ -12,7 +12,7 @@ const HealthSection = () => {
         console.log('Fetching health data...');
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
         console.log('Fetched health data:', response.data);
-
+ 
         // Ensure the response data is an array
         if (Array.isArray(response.data)) {
           setHealthData(response.data);
