@@ -28,8 +28,7 @@ const HealthSection = () => {
     fetchHealthData();
   }, []);
   
-  // Function to dynamically render icons
-  const renderIcon = (iconName) => {
+   const renderIcon = (iconName) => {
     const IconComponent = Icons[iconName];
     return IconComponent ? <IconComponent className="service-icon" /> : null;
   };
@@ -41,13 +40,18 @@ const HealthSection = () => {
         <p className="welcome-subheading">Your health is our priority. Together, we can achieve your wellness goals.</p>
       </div>
       <div className="services-container">
-        {healthData.map((service) => (
-          <div className="service" key={service._id}>
-            {renderIcon(service.icon)}
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
-          </div>
-        ))}
+      {healthData.length === 0 ? (
+  <p>No health data available</p>
+) : (
+  healthData.map((service) => (
+    <div className="service" key={service._id}>
+      {renderIcon(service.icon)}
+      <h3 className="service-title">{service.title}</h3>
+      <p className="service-description">{service.description}</p>
+    </div>
+  ))
+)}
+
       </div>
     </section>
   );
