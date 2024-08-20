@@ -36,6 +36,7 @@ const Register = () => {
       toast.error(error.response?.data?.message || 'An error occurred');
     }
   };
+  
   if(isAuthenticated){
     return <Navigate to="/"/>
   }
