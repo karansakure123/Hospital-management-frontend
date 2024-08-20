@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../style/health.css'; // CSS स्टाइलिंग के लिए
-import * as Icons from 'react-icons/fa'; // FontAwesome आइकॉन्स
+import '../style/health.css'; // CSS styling
+import * as Icons from 'react-icons/fa'; // FontAwesome icons
 
 const HealthSection = () => {
   const [healthData, setHealthData] = useState([]);
@@ -13,11 +13,11 @@ const HealthSection = () => {
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
         console.log('Fetched health data:', response.data);
 
-         if (Array.isArray(response.data)) {
+        if (Array.isArray(response.data)) {
           setHealthData(response.data);
         } else {
           console.error('Unexpected data format:', response.data);
-          setHealthData([]); 
+          setHealthData([]);
         }
       } catch (error) {
         console.error('Error fetching health data:', error);
@@ -34,7 +34,7 @@ const HealthSection = () => {
     fetchHealthData();
   }, []);
 
-   const renderIcon = (iconName) => {
+  const renderIcon = (iconName) => {
     const IconComponent = Icons[iconName];
     if (IconComponent) {
       return <IconComponent className="service-icon" />;
