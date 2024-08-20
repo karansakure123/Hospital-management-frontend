@@ -5,14 +5,21 @@ import * as Icons from 'react-icons/fa'; // Import all FontAwesome icons
 
 const HealthSection = () => {
   const [healthData, setHealthData] = useState([]);
-
+ 
   useEffect(() => {
     const fetchHealthData = async () => {
       try {
         console.log('Fetching health data...');
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
         console.log('Fetched health data:', response.data);
-        setHealthData(response.data);
+
+        // Ensure the response data is in the expected format
+        if (Array.isArray(response.data)) {
+          setHealthData(response.data);
+        } else {
+          console.error('Unexpected data format:', response.data);
+          setHealthData([]); // Set an empty array if data format is unexpected
+        }
       } catch (error) {
         console.error('Error fetching health data:', error);
         if (error.response) {
@@ -24,12 +31,11 @@ const HealthSection = () => {
         }
       }
     };
-  
+
     fetchHealthData();
   }, []);
-  
-  
-   const renderIcon = (iconName) => {
+
+  const renderIcon = (iconName) => {
     const IconComponent = Icons[iconName];
     return IconComponent ? <IconComponent className="service-icon" /> : null;
   };
@@ -41,18 +47,17 @@ const HealthSection = () => {
         <p className="welcome-subheading">Your health is our priority. Together, we can achieve your wellness goals.</p>
       </div>
       <div className="services-container">
-      {healthData.length === 0 ? (
-  <p>No health data available</p>
-) : (
-  healthData.map((service) => (
-    <div className="service" key={service._id}>
-      {renderIcon(service.icon)}
-      <h3 className="service-title">{service.title}</h3>
-      <p className="service-description">{service.description}</p>
-    </div>
-  ))
-)}
-
+        {healthData.length === 0 ? (
+          <p>No health data available</p>
+        ) : (
+          healthData.map((service) => (
+            <div className="service" key={service._id}>
+              {renderIcon(service.icon)}
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
+            </div>
+          ))
+        )}
       </div>
     </section>
   );
