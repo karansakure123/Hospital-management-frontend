@@ -6,27 +6,28 @@ import * as Icons from 'react-icons/fa'; // Import all FontAwesome icons
 const HealthSection = () => {
   const [healthData, setHealthData] = useState([]);
 
-   useEffect(() => {
+  useEffect(() => {
     const fetchHealthData = async () => {
       try {
+        console.log('Fetching health data...');
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
-        setHealthData(response.data);  
+        console.log('Fetched health data:', response.data);
+        setHealthData(response.data);
       } catch (error) {
+        console.error('Error fetching health data:', error);
         if (error.response) {
-           console.error('Error fetching health data:', error.response.data);
-          console.error('Status code:', error.response.status);
-          console.error('Headers:', error.response.headers);
+          console.error('Error response data:', error.response.data);
         } else if (error.request) {
-           console.error('Error with request:', error.request);
+          console.error('Error request:', error.request);
         } else {
-          // Something else caused the error
-          console.error('Error', error.message);
+          console.error('Error message:', error.message);
         }
       }
     };
   
     fetchHealthData();
   }, []);
+  
   
    const renderIcon = (iconName) => {
     const IconComponent = Icons[iconName];
