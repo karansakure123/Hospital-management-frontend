@@ -58,7 +58,7 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/v1/user/patient/logout", { withCredentials: true });
+            const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/user/patient/logout", { withCredentials: true });
             toast.success(response.data.message);
             setIsAuthenticated(false);
             navigateTo("/"); // Redirect to home after logout
