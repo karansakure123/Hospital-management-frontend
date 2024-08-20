@@ -6,20 +6,28 @@ import * as Icons from 'react-icons/fa'; // Import all FontAwesome icons
 const HealthSection = () => {
   const [healthData, setHealthData] = useState([]);
 
-  // Fetch health data from the backend on component mount
-  useEffect(() => {
+   useEffect(() => {
     const fetchHealthData = async () => {
       try {
         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
-        setHealthData(response.data); // Assuming the data is returned in the response body
+        setHealthData(response.data);  
       } catch (error) {
-        console.error('Error fetching health data:', error);
+        if (error.response) {
+           console.error('Error fetching health data:', error.response.data);
+          console.error('Status code:', error.response.status);
+          console.error('Headers:', error.response.headers);
+        } else if (error.request) {
+           console.error('Error with request:', error.request);
+        } else {
+          // Something else caused the error
+          console.error('Error', error.message);
+        }
       }
     };
-
+  
     fetchHealthData();
   }, []);
-
+  
   // Function to dynamically render icons
   const renderIcon = (iconName) => {
     const IconComponent = Icons[iconName];
