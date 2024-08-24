@@ -13,7 +13,7 @@ const Orthopedic = () => {
     const fetchOrthoData = async () => {
       try {
         const response = await axios.get(
-          "https://hospital-management-backend-3.onrender.com/api/v1/orthopedics/getall"
+          "https://hospital-management-backend-4.onrender.com/api/v1/orthopedics/getall"
         );
         setOrthoData(response.data);
       } catch (error) {
