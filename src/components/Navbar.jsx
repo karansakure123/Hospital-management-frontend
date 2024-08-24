@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Context } from '../main';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './style/navbar.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -11,7 +10,6 @@ const Navbar = () => {
     const [loading, setLoading] = useState(false);
     const [navigationItems, setNavigationItems] = useState([]);
     const sidebarRef = useRef(null);
-     const navigateTo = useNavigate();
 
     useEffect(() => {
         const fetchNavigationItems = async () => {
@@ -53,18 +51,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('mousedown', handleOutsideClick);
         };
-    }, [sidebarOpen]); // Add sidebarOpen as a dependency
-
-    const handleLogout = async () => {
-        try {
-            const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/user/patient/logout", { withCredentials: true });
-            toast.success(response.data.message);
-            setIsAuthenticated(false);
-            navigateTo("/"); // Redirect to home after logout
-        } catch (error) {
-            toast.error(error.response?.data?.message || "Error during logout!");
-        }
-    };
+    }, [sidebarOpen]);
 
     const handleNavLinkClick = () => {
         setLoading(true);
@@ -100,7 +87,13 @@ const Navbar = () => {
                             </video>
                         </div>
                     )}
-              
+                    <ul className="navbar-nav ml-auto">
+                        {navigationItems.map((item, index) => (
+                            <li key={index} className="nav-item">
+                                <Link className="nav-link" to={item.path} onClick={handleNavLinkClick}>{item.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -108,94 +101,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-/*
-
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Context } from '../main';
-import axios from 'axios';
-
-const Navbar = ({ toggleSidebar }) => {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
-  const navigateTo = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      await axios.get(
-        "https://hospital-management-backend-4.onrender.com/api/v1/user/patient/logout",
-        {
-          withCredentials: true,
-        }
-      );
-      setIsAuthenticated(false);
-      setUser({});
-      navigateTo('/login'); // Redirect to login page after logout
-    } catch (error) {
-      console.error('Error during logout:', error);
-    }
-  };
-
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid justify-content-between">
-        <Link className="navbar-brand" to="/">
-          <img 
-            src="https://renovahospitals.com/images/Renova-Logo.png" 
-            alt="Hospital Logo" 
-            className='nav-logo' 
-          />
-        </Link>
-        <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/appointment">Appointment</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contact</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/department">Departments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/doctors">Doctors</Link>
-            </li>
-            {isAuthenticated ? (
-              <li className="nav-item">
-                <button className="nav-link btn" onClick={handleLogout}>Logout</button>
-              </li>
-            ) : (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">Login</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/register">Register</Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
-
-*/
