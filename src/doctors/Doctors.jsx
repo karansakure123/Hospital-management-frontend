@@ -10,7 +10,7 @@ const Doctors = () => {
         const fetchDoctors = async () => {
             try {
                 const { data } = await axios.get(
-                    "https://hospital-management-backend-3.onrender.com/api/v1/user/doctors",
+                    "https://hospital-management-backend-4.onrender.com/api/v1/user/doctors",
                     { withCredentials: true }
                 );
                 setDoctors(data.doctors);

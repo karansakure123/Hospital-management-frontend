@@ -13,7 +13,7 @@ const Department = () => {
   // Fetch department data
   const fetchDepartments = async () => {
     try {
-      const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/departments/getall");
+      const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/departments/getall");
       setDeptData(response.data.departments); // Adjust based on your API response structure
       if (!toastShown) {
          setToastShown(true); // Set flag to true after showing the toast

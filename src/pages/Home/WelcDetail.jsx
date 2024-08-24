@@ -11,7 +11,7 @@ const WelcDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/intro/get'); // Your actual endpoint
+        const response = await axios.get('https://hospital-management-backend-4.onrender.com/api/v1/intro/get'); // Your actual endpoint
         console.log("API Response:", response.data); // Log the response for debugging
 
         // Check if the response contains the intros array and set state

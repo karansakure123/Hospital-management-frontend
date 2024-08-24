@@ -7,7 +7,7 @@ const IntPatient = () => {
 
   useEffect(() => {
     // Fetch the data from the API when the component mounts
-    axios.get('https://hospital-management-backend-3.onrender.com/api/v1/csr/getall')
+    axios.get('https://hospital-management-backend-4.onrender.com/api/v1/csr/getall')
       .then(response => {
         setCsrData(response.data);
       })

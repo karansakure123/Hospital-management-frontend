@@ -25,7 +25,7 @@ const Orthopedic = () => {
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
-          "https://hospital-management-backend-3.onrender.com/api/v1/user/doctors?department=Orthopedics"
+          "https://hospital-management-backend-4.onrender.com/api/v1/user/doctors?department=Orthopedics"
         );
         setExpCardsData(response.data.doctors);
       } catch (error) {

@@ -10,7 +10,7 @@ const WhoWeAre = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/whowe/getall");
+        const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/whowe/getall");
         if (response.data.success && Array.isArray(response.data.whoWeAreSections)) {
           setWhoWeAreSections(response.data.whoWeAreSections);
         } else {

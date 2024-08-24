@@ -9,7 +9,7 @@ const HealthSection = () => {
   useEffect(() => {
     const fetchHealthData = async () => {
       try {
-         const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/health/getall');
+         const response = await axios.get('https://hospital-management-backend-4.onrender.com/api/v1/health/getall');
         console.log('Fetched health data:', response.data);
 
         if (Array.isArray(response.data)) {

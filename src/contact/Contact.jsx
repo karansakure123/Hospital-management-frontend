@@ -16,7 +16,7 @@ const Contact = () => {
     console.log({ firstName, lastName, phone, email, message }); // Log data before sending
     try {
       const response = await axios.post(
-        "https://hospital-management-backend-3.onrender.com/api/v1/message/send",
+        "https://hospital-management-backend-4.onrender.com/api/v1/message/send",
         { firstName, lastName, phone, email, message },
         {
           withCredentials: true,

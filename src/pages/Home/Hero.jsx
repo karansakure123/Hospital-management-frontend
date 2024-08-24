@@ -10,7 +10,7 @@ const Allslider = () => {
   useEffect(() => {
     const fetchHeroSections = async () => {
       try {
-        const response = await axios.get('https://hospital-management-backend-3.onrender.com/api/v1/hero/getall');
+        const response = await axios.get('https://hospital-management-backend-.onrender.com/api/v1/hero/getall');
         setHeroSections(response.data.heroes || []);
       } catch (error) {
         setError('Error fetching hero sections');

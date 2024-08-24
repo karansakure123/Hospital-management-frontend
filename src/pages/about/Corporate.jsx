@@ -10,7 +10,7 @@ const Corporate = () => {
     const fetchCorporate = async () => {
       try {
         const response = await axios.get(
-          "https://hospital-management-backend-3.onrender.com/api/v1/about/corporate/getall"
+          "https://hospital-management-backend-4.onrender.com/api/v1/about/corporate/getall"
         ); // Replace with your API endpoint
         setCoporate(response.data.corporate);
       } catch (err) {

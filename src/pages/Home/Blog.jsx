@@ -7,7 +7,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('https://hospital-management-backend-3.onrender.com/api/v1/blog/getall');
+        const response = await fetch('https://hospital-management-backend-4.onrender.com/api/v1/blog/getall');
         const data = await response.json();
         setBlogs(data);
       } catch (error) {

@@ -35,7 +35,7 @@ const deptArray =[
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const { data } = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/user/doctors", { withCredentials: true });
+        const { data } = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/user/doctors", { withCredentials: true });
         setDoctors(data.doctors);
       } catch (error) {
         console.error("Error fetching doctors:", error);
@@ -50,7 +50,7 @@ const deptArray =[
  
     try {
       const response = await axios.post(
-        "https://hospital-management-backend-3.onrender.com/api/v1/appointment/post",
+        "https://hospital-management-backend-4.onrender.com/api/v1/appointment/post",
         {
           firstName,
           lastName,

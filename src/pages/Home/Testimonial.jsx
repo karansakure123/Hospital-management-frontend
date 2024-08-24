@@ -14,7 +14,7 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/testimonial/getall");
+        const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/testimonial/getall");
         setTestimonials(response.data);
       } catch (error) {
         setError("Failed to fetch testimonials");
