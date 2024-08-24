@@ -53,7 +53,7 @@ import Doctors from './doctors/Doctors';
           <Route path="/department" element={<Department />} />
           <Route path="/department/cardiology" element={<Cardiology />} />
           <Route path="/department/anaesthesiology" element={<Anaesthesiology />} />
-            <Route path="/department/orthopedic" element={<Orthopedic />} />
+            <Route path="/department/orthopedics" element={<Orthopedic />} />
            <Route path="/doctors" element={<Doctors/>} />
  
         </Routes>
