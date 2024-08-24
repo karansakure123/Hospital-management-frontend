@@ -66,11 +66,11 @@ const Blog = () => {
                   <div className="blog-card-text">
                     <div className="blog-meta">
                       <p className="date">{new Date(blog.date).toLocaleDateString()}</p>
-                      <p className="author">By {blog.author}</p>
+                      <p className="author">By {blog.excerpt}</p>
                     </div>
                     <h5 className="title">{blog.title}</h5>
                     <p className="excerpt">
-                      {blog.excerpt} <a href="#" className="blog-readmore">Read More</a>
+                      {blog.author} <a href="#" className="blog-readmore">Read More</a>
                     </p>
                   </div>
                 </div>
