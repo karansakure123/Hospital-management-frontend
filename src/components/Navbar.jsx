@@ -1,129 +1,225 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import './style/navbar.css';
+import { toast } from 'react-toastify';
 import axios from 'axios';
-import { toast, Toaster } from 'react-hot-toast';
+import Spinner from '../pages/Home/Home'; // Ensure this path is correct
 
-const UpdateNavbar = () => {
-    const { id } = useParams(); // Get the ID from the URL parameters
-    const [navItem, setNavItem] = useState({ name: '', link: '' });
-    const navigate = useNavigate();
+const Navbar = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [navigationItems, setNavigationItems] = useState([]);
+    const sidebarRef = useRef(null);
 
     useEffect(() => {
-        const fetchNavItem = async () => {
+        const fetchNavigationItems = async () => {
+            setLoading(true);
             try {
-                const response = await axios.get(`https://hospital-management-backend-4.onrender.com/api/v1/navbar/get/${id}`);
-                if (response.data.success) {
-                    setNavItem(response.data.navItem); // Set the existing data in the state
+                const response = await axios.get("https://your-backend-url/api/v1/navbar/getall");
+                console.log("Fetched navbar data:", response.data);
+                
+                if (response.data.success && response.data.navbar.length > 0) {
+                    const allNavItems = response.data.navbar.reduce((acc, navbarItem) => {
+                        return acc.concat(navbarItem.navItems);
+                    }, []);
+                    
+                    console.log("Aggregated nav items:", allNavItems);
+                    setNavigationItems(allNavItems);
                 } else {
-                    toast.error('Navbar item not found!');
+                    toast.warning("No navigation items found.");
                 }
             } catch (error) {
-                toast.error('Error fetching navbar item!');
+                console.error("Error fetching navigation items:", error);
+                toast.error("Error fetching navigation items");
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchNavItem(); // Call the function to fetch the item data
-    }, [id]);
+        fetchNavigationItems();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setNavItem({ ...navItem, [name]: value }); // Update state with form data
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.put(`https://hospital-management-backend-4.onrender.com/api/v1/navbar/update/${id}`, navItem);
-            if (response.data.success) {
-                toast.success('Navbar item updated successfully!');
-                navigate('/navbar'); // Redirect after successful update
-            } else {
-                toast.error('Failed to update navbar item!');
+        // Add event listener to close sidebar on outside click
+        const handleOutsideClick = (event) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target) && sidebarOpen) {
+                setSidebarOpen(false);
             }
-        } catch (error) {
-            toast.error('Error updating navbar item!');
-        }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        // Clean up event listener on component unmount
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [sidebarOpen]); // Add sidebarOpen as a dependency
+
+    const handleNavLinkClick = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000); // Simulate loading effect
     };
 
-    const handleDelete = () => {
-        const deleteToast = toast.loading("Confirm delete?", {
-            duration: 0,
-        });
-
-        const confirmToast = toast.custom(
-            (t) => (
-                <div className={`toast-confirm ${t.visible ? "animate-enter" : "animate-leave"}`}>
-                    <p>Are you sure you want to delete this navbar item?</p>
-                    <div className="button-group">
-                        <button
-                            onClick={async () => {
-                                toast.dismiss(deleteToast); // Dismiss loading toast
-                                try {
-                                    await axios.delete(`http://localhost:3000/api/v1/navbar/delete/${id}`);
-                                    toast.success('Navbar item deleted successfully!');
-                                    navigate('/navbar'); // Redirect after successful delete
-                                } catch (error) {
-                                    toast.error('Failed to delete navbar item.');
-                                }
-                                toast.dismiss(t.id); // Dismiss confirmation toast
-                            }}
-                        >
-                            Yes
-                        </button>
-                        <button
-                            onClick={() => {
-                                toast.dismiss(deleteToast); // Dismiss loading toast
-                                toast.error("Delete action canceled.");
-                                toast.dismiss(t.id); // Dismiss confirmation toast
-                            }}
-                        >
-                            No
-                        </button>
-                    </div>
-                </div>
-            ),
-            {
-                duration: Infinity,
-                position: "top-center",
-            }
-        );
-
-        confirmToast;
+    const toggleSidebar = () => {
+        setSidebarOpen(prev => !prev); // Toggle sidebar state
     };
+
+    if (loading) {
+        return <Spinner />; // Show loading spinner while fetching
+    }
 
     return (
-        <div className="container">
-            <Toaster position="top-center" />
-            <h2>Update Navbar Item</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        value={navItem.name}
-                        onChange={handleChange}
-                        required
-                    />
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid justify-content-between">
+                <Link className="navbar-brand" to="/">
+                    <img src="https://renovahospitals.com/images/Renova-Logo.png" alt="Hospital Logo" className='nav-logo' />
+                </Link>
+                <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div className={`navbar-collapse ${sidebarOpen ? 'show' : ''}`} ref={sidebarRef}>
+                    {sidebarOpen && (
+                        <div className="video-background">
+                            <video autoPlay loop muted className="background-video">
+                                <source src="https://static.videezy.com/system/resources/previews/000/007/024/original/timelapse_clouds.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    )}
+                    <ul className="navbar-nav mx-auto">
+                        {navigationItems.length > 0 ? (
+                            navigationItems.filter(item => item).map((item) => (
+                                <li className={`nav-item ${item.className || ''}`} key={item._id}>
+                                    <Link to={item.link} onClick={handleNavLinkClick}>{item.name}</Link>
+                                </li>
+                            ))
+                        ) : (
+                            <li className="nav-item">
+                                <span className="nav-link">Loading...</span>
+                            </li>
+                        )}
+                    </ul>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="link" className="form-label">Link</label>
-                    <input
-                        type="text"
-                        id="link"
-                        name="link"
-                        className="form-control"
-                        value={navItem.link}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit" className="btn save-btn-nav">Save Changes</button>
-             </form>
-        </div>
+            </div>
+        </nav>
     );
 };
 
-export default UpdateNavbar;
+export default Navbar;
+
+
+
+/*
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './style/navbar.css';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import Spinner from '../pages/Home/Home'; // Ensure this path is correct
+
+const Navbar = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [navigationItems, setNavigationItems] = useState([]);
+    const sidebarRef = useRef(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchNavigationItems = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/navbar/getall");
+                console.log("Fetched navbar data:", response.data);
+
+                if (response.data.success && response.data.navbar.length > 0) {
+                    const allNavItems = response.data.navbar.reduce((acc, navbarItem) => {
+                        return acc.concat(navbarItem.navItems);
+                    }, []);
+
+                    console.log("Aggregated nav items:", allNavItems);
+                    setNavigationItems(allNavItems);
+                } else {
+                    toast.warning("No navigation items found.");
+                }
+            } catch (error) {
+                console.error("Error fetching navigation items:", error);
+                toast.error("Error fetching navigation items");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNavigationItems();
+
+        // Add event listener to close sidebar on outside click
+        const handleOutsideClick = (event) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target) && sidebarOpen) {
+                setSidebarOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        // Clean up event listener on component unmount
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [sidebarOpen]);
+
+    const handleNavLinkClick = (path) => {
+        setLoading(true);
+        navigate(path);
+        setLoading(false);
+    };
+
+    const toggleSidebar = () => {
+        setSidebarOpen(prev => !prev); // Toggle sidebar state
+    };
+
+    if (loading) {
+        return <Spinner />; // Show loading spinner while fetching
+    }
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid justify-content-between">
+                <Link className="navbar-brand" to="/">
+                    <img src="https://renovahospitals.com/images/Renova-Logo.png" alt="Hospital Logo" className='nav-logo' />
+                </Link>
+                <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div className={`navbar-collapse ${sidebarOpen ? 'show' : ''}`} ref={sidebarRef}>
+                    {sidebarOpen && (
+                        <div className="video-background">
+                            <video autoPlay loop muted className="background-video">
+                                <source src="https://static.videezy.com/system/resources/previews/000/007/024/original/timelapse_clouds.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    )}
+                    <ul className="navbar-nav ml-auto">
+                        {navigationItems.map((item, index) => (
+                            <li key={index} className="nav-item">
+                                <button
+                                    className="nav-link"
+                                    onClick={() => handleNavLinkClick(item.path)}
+                                    style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', cursor: 'pointer' }}
+                                >
+                                    {item.name}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
+};
+
+export default Navbar;
+
+*/
