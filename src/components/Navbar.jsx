@@ -11,8 +11,7 @@ const Navbar = () => {
     const [loading, setLoading] = useState(false);
     const [navigationItems, setNavigationItems] = useState([]);
     const sidebarRef = useRef(null);
-    const { isAuthenticated, setIsAuthenticated } = useContext(Context);
-    const navigateTo = useNavigate();
+     const navigateTo = useNavigate();
 
     useEffect(() => {
         const fetchNavigationItems = async () => {
@@ -101,28 +100,7 @@ const Navbar = () => {
                             </video>
                         </div>
                     )}
-                    <ul className="navbar-nav mx-auto">
-                        {navigationItems.length > 0 ? (
-                            navigationItems.filter(item => item).map((item) => (
-                                <li className={`nav-item ${item.className || ''}`} key={item._id}>
-                                    <Link to={item.link} onClick={handleNavLinkClick}>{item.name}</Link>
-                                </li>
-                            ))
-                        ) : (
-                            <li className="nav-item">
-                                <span className="nav-link">Loading...</span>
-                            </li>
-                        )}
-                        {isAuthenticated ? (
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/" onClick={handleLogout}>Logout</Link>
-                            </li>
-                        ) : (
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
-                            </li>
-                        )}
-                    </ul>
+              
                 </div>
             </div>
         </nav>
