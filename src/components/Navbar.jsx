@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style/navbar.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -10,6 +10,7 @@ const Navbar = () => {
     const [loading, setLoading] = useState(false);
     const [navigationItems, setNavigationItems] = useState([]);
     const sidebarRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchNavigationItems = async () => {
@@ -17,12 +18,12 @@ const Navbar = () => {
             try {
                 const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/navbar/getall");
                 console.log("Fetched navbar data:", response.data);
-                
+
                 if (response.data.success && response.data.navbar.length > 0) {
                     const allNavItems = response.data.navbar.reduce((acc, navbarItem) => {
                         return acc.concat(navbarItem.navItems);
                     }, []);
-                    
+
                     console.log("Aggregated nav items:", allNavItems);
                     setNavigationItems(allNavItems);
                 } else {
@@ -53,11 +54,10 @@ const Navbar = () => {
         };
     }, [sidebarOpen]);
 
-    const handleNavLinkClick = () => {
+    const handleNavLinkClick = (path) => {
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000); // Simulate loading effect
+        navigate(path);
+        setLoading(false);
     };
 
     const toggleSidebar = () => {
@@ -90,7 +90,13 @@ const Navbar = () => {
                     <ul className="navbar-nav ml-auto">
                         {navigationItems.map((item, index) => (
                             <li key={index} className="nav-item">
-                                <Link className="nav-link" to={item.path} onClick={handleNavLinkClick}>{item.name}</Link>
+                                <button
+                                    className="nav-link"
+                                    onClick={() => handleNavLinkClick(item.path)}
+                                    style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', cursor: 'pointer' }}
+                                >
+                                    {item.name}
+                                </button>
                             </li>
                         ))}
                     </ul>
