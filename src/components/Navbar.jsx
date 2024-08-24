@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../main';
 import axios from 'axios';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   const navigateTo = useNavigate();
 
@@ -25,16 +25,20 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-     <div className="container-fluid justify-content-between">
-                <Link className="navbar-brand" to="/">
-                    <img src="https://renovahospitals.com/images/Renova-Logo.png" alt="Hospital Logo" className='nav-logo' />
-                </Link>
-                <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+      <div className="container-fluid justify-content-between">
+        <Link className="navbar-brand" to="/">
+          <img 
+            src="https://renovahospitals.com/images/Renova-Logo.png" 
+            alt="Hospital Logo" 
+            className='nav-logo' 
+          />
+        </Link>
+        <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
