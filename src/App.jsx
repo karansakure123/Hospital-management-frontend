@@ -24,7 +24,7 @@ import Doctors from './doctors/Doctors';
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/patient/me",
+          "https://hospital-management-backend-4.onrender.com/api/v1/user/patient/me",
           {
             withCredentials: true,
           }
