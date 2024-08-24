@@ -9,7 +9,6 @@ const Orthopedic = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch orthopedic data
     const fetchOrthoData = async () => {
       try {
         const response = await axios.get(
@@ -21,12 +20,12 @@ const Orthopedic = () => {
       }
     };
 
-    // Fetch doctors data
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
           "https://hospital-management-backend-4.onrender.com/api/v1/user/doctors?department=Orthopedics"
         );
+        console.log(response.data.doctors); // Log the response to check the data structure
         setExpCardsData(response.data.doctors);
       } catch (error) {
         console.error("Error fetching doctors:", error);
@@ -40,7 +39,7 @@ const Orthopedic = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading indicator while fetching data
+    return <div>Loading...</div>;
   }
 
   return (
@@ -102,7 +101,9 @@ const Orthopedic = () => {
                   <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div className="exp-card">
                       <img
-                        src={doctor.docAvatar?.url || "default-avatar.png"}
+                        src={doctor.docAvatar && doctor.docAvatar.url
+                          ? `https://your-base-url.com${doctor.docAvatar.url}`
+                          : "default-avatar.png"}
                         alt={`${doctor.firstName} ${doctor.lastName}`}
                         className="exp-card-img"
                       />
