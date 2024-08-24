@@ -100,10 +100,8 @@ const Orthopedic = () => {
                 {expCardsData.length > 0 && expCardsData.map((doctor, index) => (
                   <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div className="exp-card">
-                      <img
-                        src={doctor.docAvatar && doctor.docAvatar.url
-                          ? `https://your-base-url.com${doctor.docAvatar.url}`
-                          : "default-avatar.png"}
+                    <img
+                        src={doctor.docAvatar || "default-avatar.png"}
                         alt={`${doctor.firstName} ${doctor.lastName}`}
                         className="exp-card-img"
                       />
