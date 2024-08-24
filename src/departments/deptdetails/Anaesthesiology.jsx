@@ -21,7 +21,7 @@ const Anaesth = () => {
       }
     };
 
-    // Fetch doctors data
+    // Fetch doctors data for Anaesthesiology department
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
@@ -102,7 +102,7 @@ const Anaesth = () => {
                   <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div className="exp-card">
                       <img
-                        src={doctor.docAvatar?.url || "default-avatar.png"} 
+                        src={doctor.docAvatar || "default-avatar.png"}
                         alt={`${doctor.firstName} ${doctor.lastName}`}
                         className="exp-card-img"
                       />
