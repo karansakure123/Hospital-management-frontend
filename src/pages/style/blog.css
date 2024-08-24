@@ -379,6 +379,10 @@
   margin-bottom: 20px;
 }
 
+.blog-card-text> h5 {
+font-size: 1.2rem !important;
+
+}
 .blog-meta {
   display: flex;
   justify-content: space-between; /* Aligns date and author on left and right */
