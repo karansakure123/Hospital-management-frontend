@@ -14,31 +14,10 @@ import Department from './departments/Department';
 import Cardiology from './departments/deptdetails/Cardiology';
 import Anaesthesiology from './departments/deptdetails/Anaesthesiology';
 import Orthopedic from './departments/deptdetails/Orthopedic';
-import { Context } from './main'; // Ensure the correct path to the context file
-import Doctors from './doctors/Doctors';
+ import Doctors from './doctors/Doctors';
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(
-          "https://hospital-management-backend-4.onrender.com/api/v1/user/patient/me",
-          {
-            withCredentials: true,
-          }
-        );
-        setIsAuthenticated(true);
-        setUser(response.data.user);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser({});
-      }
-    };
-    fetchUser();
-  }, [setIsAuthenticated, setUser]);
-
+ 
   return (
     <Router>
       <>
