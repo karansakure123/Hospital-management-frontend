@@ -52,7 +52,6 @@ const Cardiology = () => {
             <div className="bgimg">
               <div className="cardio-sec1-container">
                 <div className="row">
-             
                   <div className="col-12">
                     <img src={data.backgroundImage} alt="Background" />
                   </div>
@@ -65,13 +64,11 @@ const Cardiology = () => {
           <div className="cardio-sec2">
             <div className="container">
               <div className="row">
-              <div className="cardio-h">
-                    <h1>Cardiology</h1>
-                  </div>
+                <div className="cardio-h">
+                  <h1>Cardiology</h1>
+                </div>
                 <div className="col-md-6">
-                  
                   <div className="cardio-sec1-bgimg">
-                    
                     <img
                       src={data.innerImage}
                       alt="Inner"
@@ -105,7 +102,7 @@ const Cardiology = () => {
                   <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div className="exp-card">
                       <img
-                        src={doctor.docAvatar?.url || "default-avatar.png"} 
+                        src={doctor.docAvatar || "default-avatar.png"} // Use a default image if docAvatar is not available
                         alt={`${doctor.firstName} ${doctor.lastName}`}
                         className="exp-card-img"
                       />
@@ -113,7 +110,7 @@ const Cardiology = () => {
                         <p className="exp-card-title">
                           <strong>{`${doctor.firstName} ${doctor.lastName}`}</strong>
                         </p>
-                        <p className="exp-card-text">Speciality: {doctor.speciality}</p>
+                        <p className="exp-card-text">Specialty: {doctor.specialty}</p> {/* Updated property name */}
                         <Link to="/appointment">
                           <button className="exp-btn">Read More</button>
                         </Link>
