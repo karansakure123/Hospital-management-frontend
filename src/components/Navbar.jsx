@@ -20,12 +20,12 @@ const Navbar = () => {
             try {
                 const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/navbar/getall");
                 console.log("Fetched navbar data:", response.data);
-                
+
                 if (response.data.success && response.data.navbar.length > 0) {
                     const allNavItems = response.data.navbar.reduce((acc, navbarItem) => {
                         return acc.concat(navbarItem.navItems);
                     }, []);
-                    
+
                     console.log("Aggregated nav items:", allNavItems);
                     setNavigationItems(allNavItems);
                 } else {
@@ -41,7 +41,6 @@ const Navbar = () => {
 
         fetchNavigationItems();
 
-        // Add event listener to close sidebar on outside click
         const handleOutsideClick = (event) => {
             if (sidebarRef.current && !sidebarRef.current.contains(event.target) && sidebarOpen) {
                 setSidebarOpen(false);
@@ -50,28 +49,20 @@ const Navbar = () => {
 
         document.addEventListener('mousedown', handleOutsideClick);
 
-        // Clean up event listener on component unmount
         return () => {
             document.removeEventListener('mousedown', handleOutsideClick);
         };
-    }, [sidebarOpen]); // Add sidebarOpen as a dependency
+    }, [sidebarOpen]);
 
     const handleLogout = async () => {
         try {
-            const response = await axios.get("https://hospital-management-backend-3.onrender.com/api/v1/user/patient/logout", { withCredentials: true });
+            const response = await axios.get("https://hospital-management-backend-4.onrender.com/api/v1/user/patient/logout", { withCredentials: true });
             toast.success(response.data.message);
             setIsAuthenticated(false);
             navigateTo("/"); // Redirect to home after logout
         } catch (error) {
             toast.error(error.response?.data?.message || "Error during logout!");
         }
-    };
-
-    const handleNavLinkClick = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000); // Simulate loading effect
     };
 
     const toggleSidebar = () => {
@@ -105,7 +96,7 @@ const Navbar = () => {
                         {navigationItems.length > 0 ? (
                             navigationItems.filter(item => item).map((item) => (
                                 <li className={`nav-item ${item.className || ''}`} key={item._id}>
-                                    <Link to={item.link} onClick={handleNavLinkClick}>{item.name}</Link>
+                                    <Link to={item.link} onClick={() => setLoading(true)}>{item.name}</Link>
                                 </li>
                             ))
                         ) : (
