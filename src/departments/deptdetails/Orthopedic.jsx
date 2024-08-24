@@ -102,7 +102,7 @@ const Orthopedic = () => {
                   <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div className="exp-card">
                       <img
-                        src={doctor.docAvatar?.url || "default-avatar.png"} 
+                        src={doctor.docAvatar?.url || "default-avatar.png"}
                         alt={`${doctor.firstName} ${doctor.lastName}`}
                         className="exp-card-img"
                       />
