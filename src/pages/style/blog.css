@@ -655,7 +655,7 @@ font-size: 1.2rem !important;
     position: relative;
     z-index: 1; /* Ensures content is above the background */
     background-color: rgb(255, 255, 255); /* White background for the test card */
-    height: 25vh; 
+    height: 30vh; 
   }
   
   .testimonial-title {
